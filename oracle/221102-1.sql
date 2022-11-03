@@ -1,4 +1,4 @@
--- °ü¸®ÀÚ ¾ø´Â »ç¿øÀÌ¸§ ´ã´ç ¾÷¹« Ãâ·Â
+-- ê´€ë¦¬ì ì—†ëŠ” ì‚¬ì›ì´ë¦„ ë‹´ë‹¹ ì—…ë¬´ ì¶œë ¥
 SELECT
     ename,
     job
@@ -7,7 +7,7 @@ FROM
 WHERE
     manager IS NULL;
 
--- Ä¿¹Ì¼Ç ¹ŞÀ» ¼ö ÀÖ´Â »ç¿ø
+-- ì»¤ë¯¸ì…˜ ë°›ì„ ìˆ˜ ìˆëŠ” ì‚¬ì›
 SELECT
     ename,
     salary,
@@ -21,7 +21,7 @@ ORDER BY
     salary DESC,
     commission DESC;
 
--- 3.ÀÌ¸§ÀÇ 3¹øÂ° ¹®ÀÚ 'R'
+-- 3.ì´ë¦„ì˜ 3ë²ˆì§¸ ë¬¸ì 'R'
 SELECT
     ename
 FROM
@@ -29,7 +29,7 @@ FROM
 WHERE
     ename LIKE '__R%';
 
--- 4. ÀÌ¸§¿¡ A¿Í E¸ğµÎ Æ÷ÇÔ
+-- 4. ì´ë¦„ì— Aì™€ Eëª¨ë‘ í¬í•¨
 SELECT
     ename
 FROM
@@ -38,7 +38,7 @@ WHERE
     ename LIKE '%A%'
     AND ename LIKE '%E%';
 
--- 5. ´ã´ç¾÷¹« »ç¹«¿ø
+-- 5. ë‹´ë‹¹ì—…ë¬´ ì‚¬ë¬´ì›
 SELECT
     ename,
     job,
@@ -53,20 +53,20 @@ WHERE
               AND salary != 1300 );
                   
     
--- 1. ¾÷¹«º° ±Ş¿©
-select job, max(salary) ÃÖ°í, min(salary) as ÃÖÀú, sum(salary) as ÇÕ, round(avg(salary)) as Æò±Õ
+-- 1. ì—…ë¬´ë³„ ê¸‰ì—¬
+select job, max(salary) ìµœê³ , min(salary) as ìµœì €, sum(salary) as í•©, round(avg(salary)) as í‰ê· 
 from employee
 group by job
 ;
 
--- 2. ´ã´ç¾÷¹«°¡ µ¿ÀÏÇÑ »ç¿ø ¼ö Ãâ·Â
-select job, count(*) µ¿ÀÏ»ç¿ø
+-- 2. ë‹´ë‹¹ì—…ë¬´ê°€ ë™ì¼í•œ ì‚¬ì› ìˆ˜ ì¶œë ¥
+select job, count(*) ë™ì¼ì‚¬ì›
 from employee
 group by job;
 
---3. ¾÷¹«º°·Î »ç¿ø ÃÖÀú ±Ş¿©
-select job, min(salary) as ÃÖÀú±Ş¿©
+--3. ì—…ë¬´ë³„ë¡œ ì‚¬ì› ìµœì € ê¸‰ì—¬
+select job, min(salary) as ìµœì €ê¸‰ì—¬
 from employee
 group by job
 HAVING min(salary) > 2000
-order by ÃÖÀú±Ş¿© desc;
+order by ìµœì €ê¸‰ì—¬ desc;
